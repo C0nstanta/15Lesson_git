@@ -254,12 +254,68 @@ if __name__ == "__main__":
 
 
 Если мы решили оставить все так - как есть, тогда:
+
 git merge --abort
+-
 
 А если мы решаем конфликт, то мы в ручном режиме все правим в файле.
 После того , как поправили все руками, мы пишем:
 
 git add main.py
+-
+
+git pull - команда. которая вытаскивает изменения из удаленного репозитория.
+-
+
+по сути она делится на 2 команды:
+
+git fetch и git merge
+-
+
+git fetch - вытаскивает изменения
+-
+git merge - мерджит эти изменения в ветку.
+-
+git rebase - перебазирование(похожа на merge, но не используется, потому что не сохраняет историю коммитов)
+-
+
+Если конфликт между локальным и удаленным репозиотрием - тогда нужно с локадьным что то решать.
+Следует все наши локальне коммиты застешить.
+
+git stash
+-
+
+Если мы хотим что то откатить с мастера, мы делаем:
+
+git revert (и там согласно настроек)
+- 
+
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+если хотим 2 коммита назад откатить, то делаем так:
+
+git revert master^2
+-
 
 
 
