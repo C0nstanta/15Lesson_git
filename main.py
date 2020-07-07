@@ -6,7 +6,6 @@ def rand_def(n):
     return num
 
 
-
 if __name__ == "__main__":
-    rand_def()
+    rand_def(10)
     print("Hello world!")
