@@ -224,6 +224,42 @@ Switched to branch 'develop'
 Обычно это понятно в процессе разделения задачи, но бывает что кто то чей то код зацепил.
 Этот нюанс станет ясен тогда - когда кто то попытается эти ветки слить воедино.
 
+Для того , что бы слить все воедино, я должен находиться в целевой ветке, в той - куда я 
+хочу поместить код.
+А во вторых делаю так:
+
+git merge develop (имя ветки, из которой я хочу перенести изменения)
+---
+
+(venv) admin@MacBook-Pro-admin.local:~/PycharmProjects/15Lesson$git merge develop 
+Auto-merging main.py
+CONFLICT (content): Merge conflict in main.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+Конфликт произошел, так как один и тот же код цеплялся в разных ветках.
+Мы в main.py можем видеть что у нас где менялось.
+<<<<<<< HEAD
+=======
+def new_function(s: str):
+    if len(s) >= 100 :
+        print("Hello one")
+    else:
+        print("Hello two")
+
+
+>>>>>>> develop
+if __name__ == "__main__":
+    rand_def(10)
+    print("Hello world!")
+
+
+Если мы решили оставить все так - как есть, тогда:
+git merge --abort
+
+А если мы решаем конфликт, то мы в ручном режиме все правим в файле.
+После того , как поправили все руками, мы пишем:
+
+git add main.py
 
 
 
